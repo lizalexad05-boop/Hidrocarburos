@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hidrocarburos: teoría, laboratorio y evaluación</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f8fc;--card:#fff;--ink:#2a3550;--mut:#66728c;--line:#dde3ef;--bond:#7a869f;--c0:#cfeadf;--d0:#2f6b55;--c1:#d3e3f7;--d1:#2f5f96;--c2:#e4dbf5;--d2:#60499a;--pe:#fde7d8;--rd:#d4534f;--ok:#d4f0df;--ko:#fbdcdc;color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#161b28;--card:#1f2636;--ink:#e6eaf5;--mut:#9aa6bf;--line:#303a52;--bond:#8a96b0;--c0:#25433a;--d0:#9fdcc3;--c1:#263b57;--d1:#a9cdf5;--c2:#382f57;--d2:#cbbcf5;--pe:#4a3a30;--rd:#ff8a85;--ok:#24473a;--ko:#55302f;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#161b28;--card:#1f2636;--ink:#e6eaf5;--mut:#9aa6bf;--line:#303a52;--bond:#8a96b0;--c0:#25433a;--d0:#9fdcc3;--c1:#263b57;--d1:#a9cdf5;--c2:#382f57;--d2:#cbbcf5;--pe:#4a3a30;--rd:#ff8a85;--ok:#24473a;--ko:#55302f;color-scheme:dark}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 "Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif}
+.app{display:block;max-width:1200px;margin:0 auto}
+aside{padding:16px 18px;border-bottom:1px solid var(--line)}
+aside h1{font-size:1.3rem;margin:0}aside p{margin:0 0 10px;color:var(--mut);font-size:.9rem}
+nav{display:flex;gap:6px;flex-wrap:wrap}
+nav button{flex:1 1 auto;text-align:left}
+main{padding:18px}
+@media(min-width:860px){.app{display:flex}aside{width:240px;flex:none;border:0;border-right:1px solid var(--line);padding:28px 20px;position:sticky;top:env(safe-area-inset-top,0px);align-self:flex-start;min-height:100vh}nav{flex-direction:column}main{flex:1;min-width:0;padding:28px 36px}}
+button{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 14px;cursor:pointer}
+button:hover{border-color:var(--bond)}button:focus-visible,.chip:focus-visible{outline:3px solid var(--d1);outline-offset:2px}
+nav button.on{background:var(--c1);border-color:var(--d1);font-weight:700}
+.pills{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.pills button{border-radius:999px;font-weight:600}
+.pills button.on0{background:var(--c0);border-color:var(--d0);color:var(--d0)}
+.pills button.on1{background:var(--c1);border-color:var(--d1);color:var(--d1)}
+.pills button.on2{background:var(--c2);border-color:var(--d2);color:var(--d2)}
+h2{font-size:1.7rem;margin:.2em 0 .3em}h3{font-size:1.1rem;margin:0 0 .5em}
+.lead{max-width:70ch;color:var(--mut)}.mut{color:var(--mut)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin:18px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.card ul{margin:0;padding-left:1.1em}.card li{margin:.35em 0}
+.rad{background:var(--pe);border:2px solid var(--rd);border-radius:14px;padding:14px 18px;margin:18px 0}
+.rad h3{margin-bottom:.6em}
+.rg{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.rg div{background:var(--card);border-radius:10px;padding:8px 12px}
+.rg b{display:block;font-size:.9rem;color:var(--mut);font-weight:600}
+.rg span{font-size:1.05rem;white-space:nowrap}.rg i{color:var(--rd);font-style:normal;font-weight:700}
+.pf{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+table{border-collapse:collapse;width:100%}th,td{padding:3px 10px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--c1);color:var(--d1);font-size:.9rem}td.r{color:var(--rd);font-weight:700}
+details{margin:14px 0}summary{cursor:pointer;font-weight:600}
+.labgrid{display:grid;gap:16px;grid-template-columns:1fr;margin-top:14px}
+@media(min-width:1000px){.labgrid{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr)}}
+.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.tools button.on{background:var(--pe);border-color:var(--rd)}
+.chip{display:inline-flex;width:44px;height:44px;border-radius:50%;align-items:center;justify-content:center;font-weight:700;cursor:grab;border:2px dashed var(--bond);background:var(--c0);user-select:none}
+svg#cv{width:100%;height:auto;aspect-ratio:640/380;border-radius:12px;border:1px solid var(--line);background:radial-gradient(var(--line) 1px,transparent 1.5px) 0 0/24px 24px;touch-action:none}
+.msg{min-height:1.4em;color:var(--rd);margin:6px 0 0;font-size:.95rem}
+.name{font-size:1.6rem;font-weight:700;line-height:1.25;word-break:break-word;margin:.1em 0 .4em}
+.warn{color:var(--rd)}
+.q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:14px 0}
+.q small{display:inline-block;background:var(--c1);color:var(--d1);border-radius:6px;padding:1px 8px;font-weight:600;margin-bottom:4px}
+.mol{font-size:1.25rem;background:var(--bg);border-radius:10px;padding:10px 14px;margin:8px 0;overflow-x:auto;white-space:nowrap}
+.q svg{color:var(--ink);display:block}
+.opt{display:block;width:100%;text-align:left;margin:6px 0}
+.opt.ok{background:var(--ok);border-color:var(--d0)}.opt.ko{background:var(--ko);border-color:var(--rd)}
+.ex{margin:8px 0 0;color:var(--mut);font-size:.95rem}
+.score{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:10px 0}
+</style></head>
+<body><div class="app">
+<aside><h1>Hidrocarburos</h1><p>Química orgánica interactiva</p><nav id="nav"></nav></aside>
+<main><div id="pills" class="pills"></div><div id="view"></div></main></div>
+<script>
+const $=s=>document.querySelector(s);
+const SB=n=>String(n).replace(/\d/g,d=>'₀₁₂₃₄₅₆₇₈₉'[d]);
+const PF='Met Et Prop But Pent Hex Hept Oct Non Dec Undec Dodec Tridec Tetradec Pentadec Hexadec Heptadec Octadec Nonadec Icos Heneicos Docos Tricos Tetracos Pentacos Hexacos Heptacos Octacos Nonacos Triacont'.split(' ');
+const stem=n=>PF[n-1].toLowerCase();
+const MUL=['','','di','tri','tetra','penta','hexa','hepta','octa','nona','deca'];
+const COMMON={'1-metiletil':'isopropil','2-metilpropil':'isobutil','1-metilpropil':'sec-butil','1,1-dimetiletil':'ter-butil'};
+const FAM=[{n:'Alcanos',or:[1]},{n:'Alquenos',or:[1,2]},{n:'Alquinos',or:[1,3]}];
+const cmpA=(a,b)=>{for(let i=0;i<Math.min(a.length,b.length);i++)if(a[i]!==b[i])return a[i]-b[i];return a.length-b.length};
+const cmpS=(x,y)=>{for(let i=0;i<x.length;i++){const c=cmpA(x[i],y[i]);if(c)return c}return 0};
+const score=(ss,ml=[])=>[[-ss.length],ml,ss.map(s=>s.loc).sort((a,b)=>a-b),ss.slice().sort((a,b)=>a.key.localeCompare(b.key)||a.loc-b.loc).map(s=>s.loc)];
+function pref(ss,show=true){const g={};ss.forEach(s=>{(g[s.name]=g[s.name]||{key:s.key,l:[]}).l.push(s.loc)});
+ return Object.entries(g).sort((x,y)=>x[1].key.localeCompare(y[1].key)).map(([n,v])=>{v.l.sort((a,b)=>a-b);const m=v.l.length;
+ return (show?v.l.join(',')+'-':'')+(m>1?MUL[m]:'')+(/\d/.test(n)?'('+n+')':n)}).join('-')}
+const join=(p,par)=>p?p+(/^\d/.test(par)?'-':'')+par:par;
+
+function iupac(A,B){
+ const ids=A.map(a=>a.id),n=ids.length,adj={};ids.forEach(i=>adj[i]=[]);
+ B.forEach(b=>{adj[b.a].push([b.b,b.o]);adj[b.b].push([b.a,b.o])});
+ const ord=(u,v)=>adj[u].find(x=>x[0]===v)[1];
+ const H=ids.reduce((s,i)=>s+4-adj[i].reduce((t,x)=>t+x[1],0),0);
+ const out={n,formula:'C'+(n>1?SB(n):'')+'H'+(H>1?SB(H):'')};
+ const seen=new Set([ids[0]]),st=[ids[0]];
+ while(st.length){const u=st.pop();adj[u].forEach(([v])=>{if(!seen.has(v)){seen.add(v);st.push(v)}})}
+ if(seen.size<n){out.err='Conecta todos los carbonos en una sola molécula.';return out}
+ if(B.length>n){out.err='Esta versión nombra estructuras con un solo ciclo.';return out}
+ if(B.some(b=>b.o===2)&&B.some(b=>b.o===3)){out.err='Los enlaces dobles y triples juntos (eninos) no están soportados.';return out}
+ const tm=B.filter(b=>b.o>1).length,t=B.some(b=>b.o===3)?'ino':'eno',memo={};
+ const errM='Todo enlace múltiple debe quedar dentro de la cadena o ciclo principal.';
+ function branches(path,par){const ss=[];path.forEach((a,i)=>adj[a].forEach(([v])=>{if(v!==par&&!path.includes(v))ss.push({loc:i+1,...subn(v,a)})}));return ss}
+ function subn(atom,par){const key=atom+'|'+par;if(memo[key])return memo[key];
+  const paths=[];(function d(u,p,path){paths.push(path);adj[u].forEach(([v])=>{if(v!==p)d(v,u,[...path,v])})})(atom,par,[atom]);
+  const L=Math.max(...paths.map(p=>p.length));let best=null;
+  paths.filter(p=>p.length===L).forEach(p=>{const ss=branches(p,par),sc=score(ss);if(!best||cmpS(sc,best.sc)<0)best={ss,sc}});
+  let nm=pref(best.ss)+stem(L)+'il';nm=COMMON[nm]||nm;
+  return memo[key]={name:nm,key:nm.replace(/^(sec|ter)-/,'').replace(/[\d,\-()]/g,'')}}
+ if(B.length===n&&n>2){
+  const rem=new Set(ids);let ch=true;
+  while(ch){ch=false;[...rem].forEach(i=>{if(adj[i].filter(([v])=>rem.has(v)).length<=1){rem.delete(i);ch=true}})}
+  const ring=[[...rem][0]];while(ring.length<rem.size){const u=ring[ring.length-1];ring.push(adj[u].find(([v])=>rem.has(v)&&!ring.includes(v))[0])}
+  if(B.some(b=>b.o>1&&!(rem.has(b.a)&&rem.has(b.b)))){out.err=errM;return out}
+  const r=ring.length;let best=null;
+  for(let s=0;s<r;s++)for(const dir of[1,-1]){const q=ring.map((_,i)=>ring[((s+dir*i)%r+r)%r]),ml=[];
+   q.forEach((a,i)=>{if(ord(a,q[(i+1)%r])>1)ml.push(i+1)});
+   const ss=branches(q,null),sc=score(ss,ml);if(!best||cmpS(sc,best.sc)<0)best={ss,ml,sc}}
+  const k=best.ml.length;
+  const par=(k>1?best.ml.join(',')+'-':'')+'ciclo'+stem(r)+(k?(k>1?'a'+MUL[k]:'')+t:'ano');
+  out.name=join(pref(best.ss,best.ss.length>1||k>0),par);out.tipo='cíclico';return out}
+ const paths=[];ids.forEach(s=>{(function d(u,p,path){if(path.length===1||path[0]<u)paths.push(path);adj[u].forEach(([v])=>{if(v!==p)d(v,u,[...path,v])})})(s,null,[s])});
+ const mc=p=>{let c=0;for(let i=0;i<p.length-1;i++)if(ord(p[i],p[i+1])>1)c++;return c};
+ const M=Math.max(...paths.map(mc));
+ if(M<tm){out.err=errM;return out}
+ let c=paths.filter(p=>mc(p)===M);const L=Math.max(...c.map(p=>p.length));c=c.filter(p=>p.length===L);
+ let best=null;
+ c.forEach(p=>[p,[...p].reverse()].forEach(q=>{const ss=branches(q,null),ml=[];
+  q.forEach((a,i)=>{if(i<q.length-1&&ord(a,q[i+1])>1)ml.push(i+1)});
+  const sc=score(ss,ml);if(!best||cmpS(sc,best.sc)<0)best={ss,ml,sc}}));
+ const k=best.ml.length;
+ const par=k?(L>3?best.ml.join(',')+'-':'')+stem(L)+(k>1?'a'+MUL[k]:'')+t:stem(L)+'ano';
+ out.name=join(pref(best.ss),par);out.tipo=best.ss.length?'ramificado':'lineal';return out}
+
+/* ---------- Contenido ---------- */
+const TH=[
+{t:'Alcanos',d:'Hidrocarburos saturados: solo tienen enlaces simples C–C y C–H. Fórmula general CₙH₂ₙ₊₂ (acíclicos) y CₙH₂ₙ (cicloalcanos). Carbonos sp³ con geometría tetraédrica (109,5°).',
+fi:['Apolares: insolubles en agua y solubles en disolventes orgánicos.','Menos densos que el agua (0,6–0,8 g/mL): flotan sobre ella.','C1–C4 son gases, C5–C17 líquidos y desde C18 sólidos cerosos.','El punto de ebullición sube con la longitud de la cadena; los ramificados hierven a menor temperatura que los lineales.'],
+qu:['Poco reactivos (parafinas): resisten ácidos, bases y oxidantes suaves.','Combustión: alcano + O₂ → CO₂ + H₂O + energía.','Sustitución por halógenos con luz UV: CH₄ + Cl₂ → CH₃Cl + HCl.','Craqueo: a alta temperatura se rompen en moléculas más pequeñas.'],
+ej:['Metano: gas natural de las cocinas.','Propano y butano: gas licuado (GLP) del cilindro doméstico.','Mezclas de C5–C10: gasolina; el octano mide su calidad.','Parafina de las velas y vaselina.'],
+no:['1. Elige la cadena continua más larga: es la principal (sufijo -ano).','2. Numera desde el extremo que dé los localizadores más bajos a los radicales.','3. Nombra los radicales en orden alfabético; usa di-, tri-, tetra- si se repiten (no cuentan para el orden).','4. Los cicloalcanos llevan el prefijo ciclo-: ciclohexano.','Ejemplo: CH₃–CH(CH₃)–CH₂–CH₃ → 2-metilbutano.']},
+{t:'Alquenos',d:'Hidrocarburos insaturados con al menos un doble enlace C=C. Fórmula general CₙH₂ₙ (un doble enlace). Carbonos sp², geometría trigonal plana (120°); el doble enlace no gira libremente.',
+fi:['Apolares, insolubles en agua y menos densos que ella.','C2–C4 son gases, C5–C15 líquidos y los mayores sólidos.','Puntos de ebullición parecidos a los de los alcanos con igual número de carbonos.','Pueden presentar isomería cis–trans.'],
+qu:['Más reactivos que los alcanos por el enlace π.','Reacciones de adición: H₂ (hidrogenación), X₂ (halogenación), HX e H₂O.','Regla de Markovnikov: en HX, el H se une al carbono del doble enlace que ya tiene más hidrógenos.','Decoloran el agua de bromo (prueba de insaturación) y pueden polimerizar.'],
+ej:['Eteno (etileno): hormona que madura bananos y aguacates.','Polietileno y polipropileno: bolsas, envases y tuberías.','Isopreno: unidad del caucho natural.','Limoneno: aroma de los cítricos.'],
+no:['1. La cadena principal debe contener el doble enlace (sufijo -eno).','2. Numera para dar al doble enlace el localizador más bajo.','3. El localizador va antes del nombre base: 1-buteno, 2-penteno.','4. Con dos dobles enlaces: -dieno (1,3-butadieno).','5. En cicloalquenos el doble enlace es 1,2: 3-metilciclohexeno.','Ejemplo: CH₂=C(CH₃)–CH₃ → 2-metilpropeno.']},
+{t:'Alquinos',d:'Hidrocarburos insaturados con al menos un triple enlace C≡C. Fórmula general CₙH₂ₙ₋₂ (un triple enlace). Carbonos sp con geometría lineal (180°).',
+fi:['Apolares y poco solubles en agua.','Etino, propino y butino son gases; los siguientes son líquidos y luego sólidos.','Puntos de ebullición algo mayores que los de los alquenos equivalentes.','Por ser lineal el triple enlace, no hay isomería cis–trans en él.'],
+qu:['Muy reactivos: dos enlaces π permiten adiciones sucesivas (H₂, X₂, HX).','Hidrogenación total produce alcanos; la parcial, alquenos.','Los alquinos terminales (R–C≡C–H) tienen un hidrógeno ligeramente ácido.','Su combustión libera mucha energía: llama de altísima temperatura.'],
+ej:['Etino (acetileno): soldadura oxiacetilénica y corte de metales.','Materia prima de plásticos como el PVC y de fibras sintéticas.','Gas de las antiguas lámparas de carburo.','Algunos fármacos y productos naturales contienen triple enlace.'],
+no:['1. La cadena principal contiene el triple enlace (sufijo -ino).','2. Numera para dar al triple enlace el localizador más bajo.','3. 1-butino, 2-butino; con dos triples: -diino.','4. Los radicales se nombran igual que en los alcanos.','Ejemplo: CH≡C–CH(CH₃)–CH₃ → 3-metil-1-butino.']}];
+const RAD=[['Metil','–CH₃'],['Etil','–CH₂–CH₃'],['n-Propil','–CH₂–CH₂–CH₃'],['n-Butil','–CH₂–CH₂–CH₂–CH₃'],['Isopropil','–CH(CH₃)–CH₃'],['Isobutil','–CH₂–CH(CH₃)–CH₃'],['sec-Butil','–CH(CH₃)–CH₂–CH₃'],['ter-Butil','–C(CH₃)₃']];
+const radicals=()=>`<div class="rad"><h3>Radicales alquilo</h3><div class="rg">${RAD.map(r=>`<div><b>${r[0]}</b><span>${r[1].replace('–','<i>–</i>')}</span></div>`).join('')}</div></div>`;
+const prefijos=()=>{let s='';for(let g=0;g<3;g++){s+='<table><tr><th>Átomos de C</th><th>Prefijo</th></tr>';for(let i=g*10;i<g*10+10;i++)s+=`<tr><td${(i+1)%10?'':' class="r"'}>${i+1}</td><td${(i+1)%10?'':' class="r"'}>${PF[i]}</td></tr>`;s+='</table>'}return `<div class="card"><h3>Prefijos según el número de átomos de carbono</h3><div class="pf">${s}</div></div>`};
+const card=(h,a)=>`<section class="card"><h3>${h}</h3><ul>${a.map(x=>`<li>${x}</li>`).join('')}</ul></section>`;
+const theory=f=>{const t=TH[f];return `<h2>${t.t}</h2><p class="lead">${t.d}</p><div class="grid">${card('Propiedades físicas',t.fi)}${card('Propiedades químicas',t.qu)}${card('Ejemplos cotidianos',t.ej)}${card('Nomenclatura',t.no)}</div>${radicals()}${prefijos()}`};
+
+/* ---------- Laboratorio ---------- */
+function ln(x1,y1,x2,y2,k,w=4){const dx=x2-x1,dy=y2-y1,l=Math.hypot(dx,dy)||1,nx=-dy/l*w,ny=dx/l*w;let s='';for(let i=0;i<k;i++){const f=i-(k-1)/2;s+=`<line x1="${x1+nx*f}" y1="${y1+ny*f}" x2="${x2+nx*f}" y2="${y2+ny*f}"/>`}return s}
+const LAB=[0,1,2].map(()=>({A:[],B:[],id:1,sel:null,join:false,ord:1}));
+const HINT=['Los alcanos solo tienen enlaces simples. Para un cicloalcano, activa «Unir átomos» y toca dos carbonos.','Elige «Doble» y arrastra un carbono junto a otro: se enlaza con doble enlace. Toca un enlace para cambiar su orden.','Elige «Triple» y arrastra un carbono junto a otro. Toca un enlace para alternar entre simple y triple.'];
+function lab(f){const o=FAM[f].or;return `<h2>Laboratorio · ${FAM[f].n}</h2><p class="lead">Arrastra el carbono (o pulsa «Añadir C») para construir la molécula. Los hidrógenos se completan solos y el nombre IUPAC se actualiza en tiempo real. ${HINT[f]}</p>
+<div class="labgrid"><div class="card"><div class="tools"><span id="chip" class="chip" draggable="true" tabindex="0" title="Arrastra al lienzo">C</span><button id="add">Añadir C</button>
+${o.length>1?`<button data-o="1">Simple</button><button data-o="${o[1]}">${o[1]==2?'Doble':'Triple'}</button>`:''}
+<button id="jn">Unir átomos</button><button id="del">Eliminar</button><button id="clr">Limpiar</button></div>
+<svg id="cv" viewBox="0 0 640 380" role="img" aria-label="Lienzo de construcción molecular"></svg><p id="msg" class="msg" aria-live="polite"></p></div>
+<div><div class="card" id="res"></div>${radicals()}</div></div>
+<details><summary>Ver tabla de prefijos</summary>${prefijos()}</details>`}
+function initLab(f){const L=LAB[f],cv=$('#cv'),O=FAM[f].or;let drag=null;
+ const P=e=>{const p=cv.createSVGPoint();p.x=e.clientX;p.y=e.clientY;return p.matrixTransform(cv.getScreenCTM().inverse())};
+ const msg=t=>{$('#msg').textContent=t;setTimeout(()=>{$('#msg').textContent=''},2800)};
+ const val=id=>L.B.reduce((s,b)=>s+(b.a===id||b.b===id?b.o:0),0),at=id=>L.A.find(a=>a.id===id);
+ const cl=v=>Math.min(620,Math.max(20,v)),cy=v=>Math.min(360,Math.max(20,v));
+ const sync=()=>{document.querySelectorAll('[data-o]').forEach(b=>b.classList.toggle('on',+b.dataset.o===L.ord));$('#jn').classList.toggle('on',L.join)};
+ function res(){const r=L.A.length?iupac(L.A,L.B):null;
+  $('#res').innerHTML='<h3>Nombre IUPAC</h3>'+(!r?'<p class="mut">Aún no hay átomos. Arrastra un carbono al lienzo.</p>':`<div class="name">${r.err?'—':r.name}</div>${r.err?`<p class="warn">${r.err}</p>`:''}<p class="mut">Fórmula molecular: <b>${r.formula}</b><br>Carbonos: <b>${r.n}</b>${r.tipo?' · Estructura: <b>'+r.tipo+'</b>':''}</p>`)}
+ function draw(){let s='';
+  L.B.forEach((b,i)=>{const p=at(b.a),q=at(b.b);s+=`<g stroke="var(--bond)" stroke-width="2.4" stroke-linecap="round">${ln(p.x,p.y,q.x,q.y,b.o)}</g><line data-b="${i}" x1="${p.x}" y1="${p.y}" x2="${q.x}" y2="${q.y}" stroke="transparent" stroke-width="18" style="cursor:pointer"/>`});
+  L.A.forEach(a=>{const h=4-val(a.id),on=a.id===L.sel;s+=`<g data-a="${a.id}" style="cursor:grab"><circle cx="${a.x}" cy="${a.y}" r="19" fill="var(--c${f})" stroke="${on?'var(--d'+f+')':'var(--bond)'}" stroke-width="${on?3.5:1.5}"/><text x="${a.x}" y="${a.y}" dy=".35em" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink)" pointer-events="none">C${h?'H'+(h>1?SB(h):''):''}</text></g>`});
+  cv.innerHTML=s;res()}
+ function addC(x,y){if(L.A.length>=30){msg('Máximo 30 carbonos.');return}
+  let tg=null,d=1e9;L.A.forEach(a=>{const e=Math.hypot(a.x-x,a.y-y);if(e<d){d=e;tg=a}});
+  const a={id:L.id,x,y};
+  if(tg&&d<140){if(val(tg.id)+L.ord>4){msg('Ese carbono ya completó sus 4 enlaces.');return}
+   const g=Math.atan2(y-tg.y,x-tg.x);a.x=cl(tg.x+64*Math.cos(g));a.y=cy(tg.y+64*Math.sin(g));L.B.push({a:tg.id,b:a.id,o:L.ord})}
+  L.id++;L.A.push(a);L.sel=a.id}
+ function link(a,b){const ex=L.B.find(x=>(x.a===a&&x.b===b)||(x.a===b&&x.b===a));if(ex)return cyc(ex);
+  if(val(a)+L.ord>4||val(b)+L.ord>4){msg('Valencia excedida: el carbono solo admite 4 enlaces.');return}L.B.push({a,b,o:L.ord})}
+ function cyc(x){const nx=O[(O.indexOf(x.o)+1)%O.length],d=nx-x.o;if(d>0&&(val(x.a)+d>4||val(x.b)+d>4)){msg('Valencia excedida: el carbono solo admite 4 enlaces.');return}x.o=nx}
+ cv.onpointerdown=e=>{const a=e.target.closest('[data-a]'),b=e.target.closest('[data-b]');
+  if(a){const id=+a.dataset.a;if(L.join&&L.sel&&L.sel!==id){link(L.sel,id);L.sel=id}else{L.sel=id;drag=id;cv.setPointerCapture(e.pointerId)}}
+  else if(b)cyc(L.B[+b.dataset.b]);else L.sel=null;draw()};
+ cv.onpointermove=e=>{if(drag){const p=P(e),a=at(drag);a.x=cl(p.x);a.y=cy(p.y);draw()}};
+ cv.onpointerup=()=>{drag=null};
+ cv.ondragover=e=>e.preventDefault();
+ cv.ondrop=e=>{e.preventDefault();const p=P(e);addC(p.x,p.y);draw()};
+ $('#chip').ondragstart=e=>e.dataTransfer.setData('text/plain','C');
+ $('#add').onclick=()=>{const t=at(L.sel)||L.A[L.A.length-1];
+  if(!t){addC(100,190);draw();return}
+  const pf=t.id%2?-.52:.52;
+  for(const g of[pf,-pf,0,pf*2,-pf*2,Math.PI,2.6,-2.6,1.57,-1.57]){const x=t.x+64*Math.cos(g),y=t.y+64*Math.sin(g);
+   if(x>20&&x<620&&y>20&&y<360&&!L.A.some(a=>Math.hypot(a.x-x,a.y-y)<40)){L.sel=t.id;addC(x,y);draw();return}}
+  msg('No hay espacio libre: mueve algunos átomos.')};
+ document.querySelectorAll('[data-o]').forEach(b=>b.onclick=()=>{L.ord=+b.dataset.o;sync()});
+ $('#jn').onclick=()=>{L.join=!L.join;sync()};
+ $('#del').onclick=()=>{if(L.sel){L.A=L.A.filter(a=>a.id!==L.sel);L.B=L.B.filter(b=>b.a!==L.sel&&b.b!==L.sel);L.sel=null;draw()}else msg('Selecciona un carbono para eliminarlo.')};
+ $('#clr').onclick=()=>{L.A=[];L.B=[];L.sel=null;draw()};
+ sync();draw()}
+
+/* ---------- Evaluación ---------- */
+function ring(n,subs={},bd={}){const R=38,X=100,Y=84,v=i=>{const a=-Math.PI/2+2*Math.PI*i/n;return[X+R*Math.cos(a),Y+R*Math.sin(a),a]};
+ let s='<svg viewBox="0 0 200 170" width="200" height="170" role="img" aria-label="Estructura cíclica">';
+ for(let i=0;i<n;i++){const[a,b]=v(i),[c,d]=v((i+1)%n);s+=`<g stroke="currentColor" stroke-width="2" stroke-linecap="round">${ln(a,b,c,d,bd[i]||1,3)}</g>`}
+ for(const i in subs){const[x,y,a]=v(+i),X2=x+24*Math.cos(a),Y2=y+24*Math.sin(a),co=Math.cos(a);
+  s+=`<g stroke="currentColor" stroke-width="2"><line x1="${x}" y1="${y}" x2="${X2}" y2="${Y2}"/></g><text x="${X2+(co>.3?4:co<-.3?-4:0)}" y="${Y2+(Math.sin(a)>.3?11:-3)}" text-anchor="${co>.3?'start':co<-.3?'end':'middle'}" font-size="14" fill="currentColor">${subs[i]}</text>`}
+ return s+'</svg>'}
+/* [tipo, pregunta, estructura, correcta, d1, d2, d3, explicación] */
+const NM='Nombra el compuesto.';
+const Q=[[
+['Teoría','¿Cuál es la fórmula general de los alcanos acíclicos?','','CₙH₂ₙ₊₂','CₙH₂ₙ','CₙH₂ₙ₋₂','CₙHₙ','Son saturados: todos los enlaces son simples, por eso tienen el máximo de hidrógenos.'],
+['Teoría','Al aumentar el número de carbonos en alcanos lineales, el punto de ebullición…','','aumenta, por mayores fuerzas de dispersión de London','disminuye, porque la molécula pesa más','se mantiene constante','solo cambia en los ramificados','Más superficie de contacto implica más atracción entre moléculas apolares.'],
+['Lineal',NM,'CH₃–CH₂–CH₂–CH₂–CH₃','pentano','butano','hexano','isopentano','Cinco carbonos en cadena continua: pent + ano.'],
+['Lineal',NM,'CH₃–CH₂–CH₂–CH₂–CH₂–CH₂–CH₃','heptano','hexano','octano','heptino','Siete carbonos con enlaces simples: hept + ano.'],
+['Ramificado',NM,'CH₃–CH(CH₃)–CH₂–CH₂–CH₃','2-metilpentano','3-metilpentano','4-metilpentano','2-metilbutano','Cadena de 5 C; el metilo queda en C2 si numeras desde el extremo cercano.'],
+['Ramificado',NM,'CH₃–CH(CH₃)–CH(CH₂–CH₃)–CH₂–CH₃','3-etil-2-metilpentano','2-metil-3-etilpentano','3-etil-4-metilpentano','3-etil-2-metilhexano','Cadena principal de 5 C; los radicales van en orden alfabético (etil antes que metil).'],
+['Cíclico',NM,ring(6,{0:'CH₃'}),'metilciclohexano','heptano','metilciclopentano','etilciclohexano','Anillo de 6 C con un solo radical: no necesita localizador.'],
+['Cíclico',NM,ring(6,{0:'CH₂–CH₃',2:'CH₃'}),'1-etil-3-metilciclohexano','1-metil-3-etilciclohexano','3-etil-1-metilciclohexano','1-etil-5-metilciclohexano','Localizadores 1,3 y el primero, por orden alfabético, es el etil.']],
+[
+['Teoría','¿Cuál es la fórmula general de un alqueno con un solo doble enlace?','','CₙH₂ₙ','CₙH₂ₙ₊₂','CₙH₂ₙ₋₂','CₙH₂ₙ₋₄','Un doble enlace quita dos hidrógenos respecto del alcano.'],
+['Teoría','Los carbonos del doble enlace tienen hibridación y geometría…','','sp², trigonal plana (120°)','sp³, tetraédrica (109,5°)','sp, lineal (180°)','sp², lineal (180°)','Tres regiones de electrones alrededor del carbono: sp² y plano.'],
+['Lineal',NM,'CH₂=CH–CH₂–CH₃','1-buteno','2-buteno','1-butino','butano','El doble enlace empieza en C1.'],
+['Lineal',NM,'CH₃–CH₂–CH=CH–CH₂–CH₃','3-hexeno','2-hexeno','4-hexeno','1-hexeno','Es simétrica: el doble enlace está entre C3 y C4 desde cualquier extremo.'],
+['Ramificado',NM,'CH₂=C(CH₃)–CH₂–CH₃','2-metil-1-buteno','3-metil-1-buteno','2-metil-3-buteno','2-etilpropeno','Cadena de 4 C que incluye el doble enlace, con un metilo en C2.'],
+['Ramificado',NM,'CH₃–CH=C(CH₃)–CH(CH₃)–CH₃','3,4-dimetil-2-penteno','2,3-dimetil-3-penteno','3,4-dimetil-3-penteno','2,3-dimetil-2-penteno','El doble enlace debe recibir el localizador más bajo (2), no los radicales.'],
+['Cíclico',NM,ring(6,{},{0:2}),'ciclohexeno','1-ciclohexeno','hexeno','ciclohexano','En un ciclo con un solo doble enlace no se escribe localizador.'],
+['Cíclico',NM,ring(6,{2:'CH₃'},{0:2}),'3-metilciclohexeno','1-metilciclohexeno','4-metilciclohexeno','6-metilciclohexeno','El doble enlace es C1=C2 y el metilo queda en C3.']],
+[
+['Teoría','¿Cuál es la fórmula general de un alquino con un solo triple enlace?','','CₙH₂ₙ₋₂','CₙH₂ₙ','CₙH₂ₙ₊₂','CₙH₂ₙ₋₄','El triple enlace quita cuatro hidrógenos respecto del alcano.'],
+['Teoría','Los carbonos del triple enlace tienen geometría…','','lineal, 180° (sp)','trigonal plana, 120° (sp²)','tetraédrica, 109,5° (sp³)','angular, 104,5°','Dos regiones de electrones: hibridación sp y ángulo de 180°.'],
+['Lineal',NM,'CH≡C–CH₂–CH₃','1-butino','2-butino','3-butino','1-buteno','El triple enlace empieza en C1.'],
+['Lineal',NM,'CH₃–C≡C–CH₂–CH₂–CH₃','2-hexino','1-hexino','3-hexino','4-hexino','Desde el extremo izquierdo el triple enlace va en C2.'],
+['Ramificado',NM,'CH≡C–CH(CH₃)–CH₂–CH₃','3-metil-1-pentino','3-metil-4-pentino','4-metil-1-pentino','3-etil-1-butino','Cadena de 5 C con el triple en C1 y el metilo en C3.'],
+['Ramificado',NM,'CH₃–C≡C–CH(CH₃)–CH(CH₃)–CH₃','4,5-dimetil-2-hexino','2,3-dimetil-4-hexino','4,5-dimetil-3-hexino','3,4-dimetil-2-hexino','Numerando desde la izquierda el triple enlace queda en 2 (el más bajo posible).'],
+['Cíclico',NM,ring(8,{},{0:3}),'ciclooctino','cicloocteno','1-ciclooctino','octino','Anillo de 8 C con un triple enlace: ciclo + oct + ino.'],
+['Cíclico',NM,ring(8,{2:'CH₃'},{0:3}),'3-metilciclooctino','1-metilciclooctino','4-metilciclooctino','8-metilciclooctino','El triple enlace es C1≡C2 y el metilo queda en C3.']]];
+const QS=[null,null,null];
+const shuf=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+function quiz(f){if(!QS[f])QS[f]={ord:Q[f].map(()=>shuf([0,1,2,3])),ans:Array(8).fill(null)};
+ const S=QS[f],ok=S.ans.filter(x=>x===0).length,dn=S.ans.filter(x=>x!==null).length;
+ return `<h2>Evaluación · ${FAM[f].n}</h2><p class="lead">8 preguntas: 2 de teoría y 6 de ejercicios (2 lineales, 2 ramificados y 2 cíclicos).</p>
+<div class="score"><b>Respondidas ${dn}/8 · Aciertos ${ok}</b><button onclick="rst(${f})">Reiniciar</button></div>
+${dn===8?`<div class="card"><b>Resultado final: ${ok}/8.</b> ${ok>=7?'Excelente dominio del tema.':ok>=5?'Buen avance; repasa los ejercicios fallados.':'Repasa la teoría y practica en el laboratorio.'}</div>`:''}
+${Q[f].map((q,i)=>{const a=S.ans[i];return `<div class="q"><small>${i+1}. ${q[0]}</small><div>${q[1]}</div>${q[2]?(q[2].startsWith('<svg')?q[2]:`<div class="mol">${q[2]}</div>`):''}
+${S.ord[i].map(j=>`<button class="opt${a!==null?(j===0?' ok':j===a?' ko':''):''}" ${a!==null?'disabled':''} onclick="ans(${f},${i},${j})">${q[3+j]}</button>`).join('')}
+${a!==null?`<p class="ex"><b>${a===0?'Correcto.':'Respuesta: '+q[3]+'.'}</b> ${q[7]}</p>`:''}</div>`}).join('')}`}
+function ans(f,i,j){if(QS[f].ans[i]!==null)return;QS[f].ans[i]=j;keep()}
+function rst(f){QS[f]=null;keep()}
+function keep(){const y=scrollY;render();scrollTo(0,y)}
+
+/* ---------- Navegación ---------- */
+const S={sec:'t',fam:0};
+const go=s=>{S.sec=s;render();scrollTo(0,0)},fm=f=>{S.fam=f;render();scrollTo(0,0)};
+function render(){
+ $('#nav').innerHTML=[['t','Teoría y propiedades'],['l','Laboratorio de construcción'],['e','Evaluación']].map(x=>`<button class="${S.sec===x[0]?'on':''}" onclick="go('${x[0]}')">${x[1]}</button>`).join('');
+ $('#pills').innerHTML=FAM.map((x,i)=>`<button class="${S.fam===i?'on'+i:''}" onclick="fm(${i})">${x.n}</button>`).join('');
+ $('#view').innerHTML=S.sec==='t'?theory(S.fam):S.sec==='l'?lab(S.fam):quiz(S.fam);
+ if(S.sec==='l')initLab(S.fam)}
+render();
+</script></body></html>
